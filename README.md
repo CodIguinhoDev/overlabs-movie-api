@@ -1,115 +1,118 @@
-A aplicação consome uma API externa de metadados de filmes, transforma as informações recebidas e disponibiliza os resultados por meio de um endpoint HTTP.
+API REST desenvolvida com **Node.js, TypeScript e Express** para consumir dados de uma API externa de filmes, processar suas informações e disponibilizar uma resposta estruturada por meio de um endpoint HTTP.
 
-Funcionalidades
+## Funcionalidades
 
-Consumo de dados de uma API externa.
+- **Consumo de API externa:** consulta os metadados dos filmes disponibilizados pela API de origem.
+- **Cálculo de lucro:** calcula a diferença entre a bilheteria e o orçamento de cada filme.
+- **Identificação de premiações:** seleciona a premiação com maior relevância.
+- **Conversão de duração:** transforma a duração dos filmes de minutos para segundos.
+- **Extração da nota do IMDb:** identifica a avaliação correspondente à fonte IMDb.
+- **Seleção de sinopse:** prioriza os idiomas português (`pt-br`), inglês (`en`) e, por último, qualquer idioma disponível.
+- **Tratamento da resposta:** remove campos desnecessários e retorna apenas as informações previstas.
+- **Documentação interativa:** disponibiliza a especificação da API por meio do Swagger UI.
 
-Cálculo do lucro dos filmes a partir da bilheteria e do orçamento.
+## Tecnologias utilizadas
 
-Identificação da premiação de maior relevância.
+- [Node.js](https://nodejs.org/) 
+- [TypeScript](https://www.typescriptlang.org/) 
+- [Express](https://expressjs.com/) 
+- [Axios](https://axios-http.com/) 
+- [Swagger / OpenAPI](https://swagger.io/) 
+- `swagger-jsdoc` — geração da especificação OpenAPI a partir de anotações.
+- `swagger-ui-express` — disponibilização da documentação interativa.
 
-Conversão da duração dos filmes de minutos para segundos.
+## Endpoint
 
-Extração da nota do IMDb.
+### `GET /filmes`
 
-Seleção da sinopse com prioridade para português (pt-br), inglês (en) e, por último, qualquer idioma disponível.
+Retorna a lista de filmes com os dados transformados pela aplicação.
 
-Remoção de campos desnecessários da resposta final.
+**Exemplo de resposta:**
 
-Documentação interativa da API com Swagger UI.
-
-Tecnologias utilizadas
-
-Node.js
-
-TypeScript
-
-Express
-
-Axios
-
-Swagger / OpenAPI
-
-swagger-jsdoc
-
-swagger-ui-express
-
-Endpoint
-
-GET /filmes
-
-Retorna a lista de filmes com os dados transformados.
-
-Exemplo de resposta:
-
+```json
 [
-{
-"titulo": "O Poderoso Chefão",
-"ano": 1972,
-"diretor": "Francis Ford Coppola",
-"genero": ["Crime", "Drama"],
-"duracaoSegundos": 10500,
-"notaIMDb": "9.2",
-"lucro": "$239M",
-"maiorPremiacao": "Oscar de Melhor Filme",
-"sinopse": "Um chefão da máfia tenta transferir o controle de seu império clandestino para seu filho relutante."
-}
+  {
+    "titulo": "O Poderoso Chefão",
+    "ano": 1972,
+    "diretor": "Francis Ford Coppola",
+    "genero": ["Crime", "Drama"],
+    "duracaoSegundos": 10500,
+    "notaIMDb": "9.2",
+    "lucro": "$239M",
+    "maiorPremiacao": "Oscar de Melhor Filme",
+    "sinopse": "Um chefão da máfia tenta transferir o controle de seu império clandestino para seu filho relutante."
+  }
 ]
+```
 
-A resposta completa contém os filmes disponibilizados pela API de origem.
+O exemplo apresenta um único filme para facilitar a visualização. A resposta completa contém os filmes disponibilizados pela API de origem.
 
-Documentação interativa
+## Documentação interativa
 
-Com a aplicação em execução, acesse:
+A aplicação utiliza Swagger UI para apresentar os endpoints, os formatos das respostas e as informações documentadas sobre a API.
 
-http://localhost:3000/api-docs
+Com o servidor em execução, acesse:
 
-Caso a aplicação esteja configurada para utilizar outra porta, substitua 3000 pela porta correspondente.
+**http://localhost:3000/api-docs**
 
-Configuração e execução
+Caso a aplicação utilize outra porta, substitua `3000` pela porta configurada.
 
-Pré-requisitos
+## Configuração e execução
 
-Node.js instalado.
+### Pré-requisitos
 
-npm instalado.
+- Node.js instalado.
+- npm instalado.
+- Acesso à API externa de metadados dos filmes.
 
-Acesso à API externa de metadados dos filmes.
+### 1. Clone o repositório
 
-1. Clone o repositório
+```bash
+git clone (https://github.com/CodIguinhoDev/overlabs-movie-api)
+cd <overlabs-movie-api>
+```
 
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_PROJETO>
+### 2. Instale as dependências
 
-2. Instale as dependências
-
+```bash
 npm install
+```
 
-3. Configure as variáveis de ambiente
+### 3. Configure as variáveis de ambiente
 
-Crie um arquivo .env na raiz do projeto e configure a URL da API externa:
+Crie um arquivo `.env` na raiz do projeto:
 
-URL*MOVIES=<URL_DA_API_EXTERNA>
-PORT_SERVER=<SUA_PORTA*>
+```env
+URL_MOVIES=<URL_DA_API_EXTERNA>
+PORT_SERVER=<SUA_PORTA_>
+```
 
-4. Inicie a aplicação
+Substitua `<URL_DA_API_EXTERNA>` pelo endereço da API de origem. Ajuste a porta conforme a configuração utilizada pelo projeto.
 
-Execute o script de desenvolvimento ou inicialização definido no package.json.
+### 4. Inicie a aplicação
 
-Por exemplo, se o projeto possuir o script dev:
+Execute o script disponível no `package.json`. Por exemplo, se o projeto possuir o script `dev`:
 
-npm run dev ou npm start
+```bash
+npm run dev
+```
 
-5. Acesse a API
+Se houver um script de inicialização `start` configurado, ele também poderá ser utilizado conforme a configuração do projeto:
 
-Faça uma requisição GET para:
+```bash
+npm start
+```
 
+### 5. Acesse a API
+
+Com o servidor em execução, faça uma requisição HTTP `GET` para:
+
+```text
 http://localhost:3000/filmes
+```
 
-Para consultar a documentação, acesse:
+Para consultar a documentação interativa:
 
+```text
 http://localhost:3000/api-docs
-
-Licença
-
-Projeto desenvolvido para fins de avaliação técnica no processo seletivo da Overlabs.
+```
