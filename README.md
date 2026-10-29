@@ -44,10 +44,19 @@ Retorna a lista de filmes com os dados transformados pela aplicação.
   }
 ]
 ```
-
 O exemplo apresenta um único filme para facilitar a visualização. A resposta completa contém os filmes disponibilizados pela API de origem.
 
+### Teste da API no Postman
+
+A imagem abaixo demonstra a resposta da requisição `GET /filmes` no Postman.
+
+<img width="977" height="698" alt="Resposta da API no Postman" src="https://github.com/user-attachments/assets/21052f64-7327-41ff-81ee-e752f5d8ee98" />
+
 ## Documentação interativa
+
+A documentação interativa permite visualizar o endpoint e consultar o formato da resposta da API.
+
+<img width="1093" height="713" alt="Documentação da API no Swagger UI" src="https://github.com/user-attachments/assets/938e05ff-4dc7-4628-a5f9-ce126dab6e54" />
 
 A aplicação utiliza Swagger UI para apresentar os endpoints, os formatos das respostas e as informações documentadas sobre a API.
 
