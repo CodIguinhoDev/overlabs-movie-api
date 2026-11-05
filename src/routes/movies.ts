@@ -5,7 +5,7 @@ const router = Router();
 
 /**
  * @openapi
- * /api/v1/filmes:
+ * /filmes:
  *   get:
  *     summary: Lista os filmes com dados transformados
  *     description: |
