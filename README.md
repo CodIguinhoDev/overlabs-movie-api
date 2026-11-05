@@ -70,21 +70,21 @@ Caso a aplicação utilize outra porta, substitua `3000` pela porta configurada.
 
 ### Pré-requisitos
 
-- Node.js instalado.
-- npm instalado.
+- Node.js instalado. (v24.12.0)
+- npm instalado. (11.6.2)
 - Acesso à API externa de metadados dos filmes.
 
 ### 1. Clone o repositório
 
 ```bash
 git clone https://github.com/CodIguinhoDev/overlabs-movie-api
-cd <overlabs-movie-api>
+cd overlabs-movie-api
 ```
 
 ### 2. Instale as dependências
 
 ```bash
-npm install
+npm ci --legacy-peer-deps
 ```
 
 ### 3. Configure as variáveis de ambiente
@@ -93,7 +93,7 @@ Crie um arquivo `.env` na raiz do projeto:
 
 ```env
 URL_MOVIES=<URL_DA_API_EXTERNA>
-PORT_SERVER=<SUA_PORTA_>
+PORT=<SUA_PORTA_> || 3000
 ```
 
 Substitua `<URL_DA_API_EXTERNA>` pelo endereço da API de origem. Ajuste a porta conforme a configuração utilizada pelo projeto.
