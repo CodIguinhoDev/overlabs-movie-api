@@ -77,7 +77,7 @@ Caso a aplicação utilize outra porta, substitua `3000` pela porta configurada.
 ### 1. Clone o repositório
 
 ```bash
-git clone (https://github.com/CodIguinhoDev/overlabs-movie-api)
+git clone https://github.com/CodIguinhoDev/overlabs-movie-api
 cd <overlabs-movie-api>
 ```
 
