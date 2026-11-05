@@ -100,16 +100,10 @@ Substitua `<URL_DA_API_EXTERNA>` pelo endereço da API de origem. Ajuste a porta
 
 ### 4. Inicie a aplicação
 
-Execute o script disponível no `package.json`. Por exemplo, se o projeto possuir o script `dev`:
+Execute o comando abaixo: 
 
 ```bash
 npm run dev
-```
-
-Se houver um script de inicialização `start` configurado, ele também poderá ser utilizado conforme a configuração do projeto:
-
-```bash
-npm start
 ```
 
 ### 5. Acesse a API
